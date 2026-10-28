@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Egyptian Startup Profile",
+  "type": "object",
+  "required": ["startup_profile"],
+  "properties": {
+    "startup_profile": {
+      "type": "object",
+      "required": ["profile_id", "generated_at", "company_overview", "stage_context", "business_summary", "product", "market_positioning", "challenges", "business_narrative"],
+      "properties": {
+        "profile_id": {"type": "string", "format": "uuid"},
+        "generated_at": {"type": "string", "format": "date-time"},
+        "company_overview": {
+          "type": "object",
+          "required": ["name", "industry", "tagline"],
+          "properties": {
+            "name": {"type": "string"},
+            "industry": {"type": "string", "enum": ["fintech", "healthtech", "agritech", "edtech", "proptech", "logistics", "e-commerce", "saas", "other"]},
+            "founded": {"type": "string"},
+            "location": {"type": "string"},
+            "tagline": {"type": "string"},
+            "is_deep_tech": {"type": "boolean"}
+          }
+        },
+        "stage_context": {
+          "type": "object",
+          "required": ["current_stage", "stage_description"],
+          "properties": {
+            "current_stage": {"type": "string", "enum": ["Ideation/Pre-Seed", "Seed", "Series A", "Series B+", "Mature/Exit"]},
+            "stage_description": {"type": "string"},
+            "typical_characteristics": {"type": "string"},
+            "egypt_context": {"type": "string"},
+            "ecosystem_position": {"type": "string"}
+          }
+        },
+        "business_summary": {
+          "type": "object",
+          "properties": {
+            "revenue": {"type": "string"},
+            "funding_raised": {"type": "string"},
+            "team_size": {"type": "integer"},
+            "team_composition": {"type": "string"},
+            "active_users": {"type": "string"},
+            "growth_rate": {"type": "string"}
+          }
+        },
+        "product": {
+          "type": "object",
+          "required": ["name", "description"],
+          "properties": {
+            "name": {"type": "string"},
+            "description": {"type": "string"},
+            "key_features": {"type": "array", "items": {"type": "string"}},
+            "technology": {"type": "string"},
+            "stage_of_development": {"type": "string", "enum": ["Idea", "MVP", "Beta", "Production", "Mature"]}
+          }
+        },
+        "market_positioning": {
+          "type": "object",
+          "properties": {
+            "target_market": {"type": "string"},
+            "market_size": {"type": "string"},
+            "competitors": {"type": "array", "items": {"type": "string"}},
+            "differentiation": {"type": "string"}
+          }
+        },
+        "challenges": {
+          "type": "object",
+          "properties": {
+            "primary_challenge": {
+              "type": "object",
+              "properties": {
+                "type": {"type": "string"},
+                "description": {"type": "string"}
+              }
+            },
+            "secondary_challenges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {"type": "string"},
+                  "description": {"type": "string"}
+                }
+              }
+            },
+            "stage_typical_issues": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "business_narrative": {
+          "type": "object",
+          "properties": {
+            "elevator_pitch": {"type": "string"},
+            "problem_statement": {"type": "string"},
+            "solution_overview": {"type": "string"},
+            "market_opportunity": {"type": "string"},
+            "traction": {"type": "string"},
+            "swot_analysis": {
+              "type": "object",
+              "properties": {
+                "strengths": {"type": "array", "items": {"type": "string"}},
+                "weaknesses": {"type": "array", "items": {"type": "string"}},
+                "opportunities": {"type": "array", "items": {"type": "string"}},
+                "threats": {"type": "array", "items": {"type": "string"}}
+              }
+            },
+            "current_priorities": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "stage_data_source": {"type": "string"},
+            "web_research_basis": {"type": "array", "items": {"type": "string"}},
+            "challenge_categories": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    }
+  }
+}

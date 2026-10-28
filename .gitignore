@@ -1,0 +1,52 @@
+# Environment variables
+.env
+.env.local
+
+# Generated profiles (CSV outputs)
+generated_profiles/
+
+# Python runtime files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.cache/
